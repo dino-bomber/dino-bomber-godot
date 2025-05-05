@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo18iwm3p8e2j"]
+
+[ext_resource type="Script" uid="uid://dnly6potl5rcl" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://i5vx446la6bx" path="res://player1.png" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://beyymssla4gw1" path="res://player2.png" id="2_i3pqv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sweqy"]
+size = Vector2(30, 30)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_i3pqv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hqtel")
+frame = 1
+frame_progress = 0.32405
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sweqy")
+debug_color = Color(0.453579, 0.44882, 1, 0.42)
