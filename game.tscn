@@ -37,3 +37,63 @@ gizmo_extents = 16.0
 [node name="SpawnPoint2" type="Marker2D" parent="Level"]
 position = Vector2(432, 368)
 gizmo_extents = 16.0
+
+[node name="SpawnPoint3" type="Marker2D" parent="Level"]
+position = Vector2(432, 48)
+gizmo_extents = 16.0
+
+[node name="SpawnPoint4" type="Marker2D" parent="Level"]
+position = Vector2(48, 368)
+gizmo_extents = 16.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Multiplayer" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Multiplayer"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 103.0
+offset_right = 289.0
+offset_bottom = 301.0
+
+[node name="Title" type="Label" parent="UI/Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "DinoBomber"
+
+[node name="Host" type="Button" parent="UI/Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="CopyOID" type="Button" parent="UI/Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Copy OID"
+
+[node name="HSeparator" type="HSeparator" parent="UI/Multiplayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OIDInput" type="LineEdit" parent="UI/Multiplayer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Host OID"
+
+[node name="Join" type="Button" parent="UI/Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="OID" type="Label" parent="UI/Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://bo18iwm3p8e2j")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="UI/Multiplayer/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="UI/Multiplayer/VBoxContainer/CopyOID" to="." method="_on_copy_oid_pressed"]
+[connection signal="pressed" from="UI/Multiplayer/VBoxContainer/Join" to="." method="_on_join_pressed"]

@@ -4,8 +4,15 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var game: Game = get_parent()
+
+func _enter_tree() -> void:
+	set_multiplayer_authority(int(str(name)))
 
 func _physics_process(_delta: float) -> void:
+	if !is_multiplayer_authority():
+		return
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var y_direction = Input.get_axis("ui_up", "ui_down")
