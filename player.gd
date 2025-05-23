@@ -1,7 +1,9 @@
+
 class_name Player
 extends CharacterBody2D
 
 const SPEED = 300.0
+@export var bomb_scene: PackedScene
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var game: Game = get_parent()
@@ -9,6 +11,16 @@ const SPEED = 300.0
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))
 
+func _input(event):
+	if event.is_action_pressed("drop_bomb"):
+		place_bomb()
+
+func place_bomb():
+	if bomb_scene:
+		var bomb = bomb_scene.instantiate()
+		bomb.global_position = global_position
+		get_tree().current_scene.add_child(bomb)
+	
 func _physics_process(_delta: float) -> void:
 	if !is_multiplayer_authority():
 		return

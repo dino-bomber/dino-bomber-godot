@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo18iwm3p8e2j"]
+[gd_scene load_steps=8 format=3 uid="uid://bo18iwm3p8e2j"]
 
 [ext_resource type="Script" uid="uid://dnly6potl5rcl" path="res://player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://i5vx446la6bx" path="res://player1.png" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://ddffjqdwe0amw" path="res://bomb.tscn" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://beyymssla4gw1" path="res://player2.png" id="2_i3pqv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
@@ -30,11 +31,11 @@ properties/0/replication_mode = 1
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_i3pqv")
+bomb_scene = ExtResource("2_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hqtel")
-frame = 1
-frame_progress = 0.32405
+frame_progress = 0.00236644
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sweqy")
