@@ -2,7 +2,7 @@
 class_name Player
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 200.0
 @export var bomb_scene: PackedScene
 
 @onready var _animated_sprite = $AnimatedSprite2D
@@ -40,7 +40,18 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if velocity.length():
-		_animated_sprite.play("default")
+		var animation: String
+		match velocity.normalized():
+			Vector2.UP:
+				animation = "up_walk"
+			Vector2.LEFT:
+				animation = "left_walk"
+			Vector2.RIGHT:
+				animation = "right_walk"
+			Vector2.DOWN:
+				animation = "down_walk"
+		
+		_animated_sprite.play(animation)
 	else:
 		_animated_sprite.stop()
 
