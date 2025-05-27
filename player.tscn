@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://bo18iwm3p8e2j"]
+[gd_scene load_steps=22 format=3 uid="uid://bo18iwm3p8e2j"]
 
 [ext_resource type="Script" uid="uid://dnly6potl5rcl" path="res://player.gd" id="1_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://ddffjqdwe0amw" path="res://bomb.tscn" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://bfpmeefigetnr" path="res://assets/sprites/player-sprite-sheet.png" id="5_sweqy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
@@ -157,7 +156,6 @@ properties/2/replication_mode = 1
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_i3pqv")
-bomb_scene = ExtResource("2_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hqtel")

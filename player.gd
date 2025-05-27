@@ -3,7 +3,7 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 200.0
-@export var bomb_scene: PackedScene
+const BOMB = preload("res://bomb.tscn")
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var game: Game = get_parent()
@@ -20,11 +20,10 @@ func _input(event):
 
 @rpc("call_local")
 func place_bomb(pid: int):
-	if bomb_scene:
-		var bomb = bomb_scene.instantiate()
-		bomb.set_multiplayer_authority(pid)
-		bomb.global_position = global_position
-		get_tree().current_scene.add_child(bomb)
+	var bomb = BOMB.instantiate()
+	bomb.set_multiplayer_authority(pid)
+	bomb.global_position = global_position
+	get_tree().current_scene.add_child(bomb)
 	
 func _physics_process(_delta: float) -> void:
 	if !is_multiplayer_authority():
