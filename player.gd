@@ -12,12 +12,17 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))
 
 func _input(event):
+	if !is_multiplayer_authority():
+		return
+		
 	if event.is_action_pressed("drop_bomb"):
-		place_bomb()
+		place_bomb.rpc(multiplayer.get_unique_id())
 
-func place_bomb():
+@rpc("call_local")
+func place_bomb(pid: int):
 	if bomb_scene:
 		var bomb = bomb_scene.instantiate()
+		bomb.set_multiplayer_authority(pid)
 		bomb.global_position = global_position
 		get_tree().current_scene.add_child(bomb)
 	
