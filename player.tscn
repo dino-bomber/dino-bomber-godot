@@ -1,10 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bo18iwm3p8e2j"]
+[gd_scene load_steps=23 format=3 uid="uid://bo18iwm3p8e2j"]
 
 [ext_resource type="Script" uid="uid://dnly6potl5rcl" path="res://player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://i5vx446la6bx" path="res://player1.png" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://ddffjqdwe0amw" path="res://bomb.tscn" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://beyymssla4gw1" path="res://player2.png" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://bfpmeefigetnr" path="res://player-sprite-sheet.png" id="5_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bfpmeefigetnr" path="res://assets/sprites/player-sprite-sheet.png" id="5_sweqy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
 atlas = ExtResource("5_sweqy")
@@ -72,17 +70,6 @@ region = Rect2(99, 66, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_onrkg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_i3pqv")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwjto")
@@ -174,8 +161,7 @@ bomb_scene = ExtResource("2_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"left_walk"
-frame_progress = 0.357229
+animation = &"down_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sweqy")
